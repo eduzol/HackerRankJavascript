@@ -21,13 +21,11 @@ function getMovieTitles(substr) {
             fetch(url).then(resp => resp.json())
         )).then(responses => {
             
-            let movieTitles  = [];
-            for ( let i = 0 ; i < responses.length ; i++ ){
-                titles = responses[i].data.map( movie => movie.Title);
-                movieTitles = movieTitles.concat(titles);
-            }
+            let data = responses.map( response => response.data );
+            let movieTitles = [].concat.apply([],data).map( movie => movie.Title );
             movieTitles.sort();
             console.log(movieTitles);
+            
         });
     });
 }
