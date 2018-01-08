@@ -24,7 +24,7 @@ function getCountryByPopulation( substr , population ){
             
             let data = responses.map( response => response.data );
             let countries = [].concat.apply([],data).filter( country => country.population > population );
-            let total = countries.length + 1;
+            let total = countries.length;
             console.log(total);
 
         });
